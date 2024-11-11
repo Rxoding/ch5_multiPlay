@@ -3,7 +3,7 @@ syntax = "proto3";
 package gameNotification;
 
 message LocationUpdate {
-  repeated UserLoaction users = 1;
+  repeated UserLocation users = 1;
 
   message UserLocation {
     string id = 1;
