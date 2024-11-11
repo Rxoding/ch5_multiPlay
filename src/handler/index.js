@@ -1,14 +1,23 @@
 import { HANDLER_IDS } from '../constants/handlerIds.js';
+import initialHandler from './user/initial.handler.js';
 
 const handlers = {
   [HANDLER_IDS.INITIAL]: {
+    handler: initialHandler,
     protoType: 'initial.InitialPayload',
   },
 };
 
-export const getProtoTypeNameByHandlerId = (handerId) => {
-  if (!handlers[handerId]) {
+export const getHandlerById = (handlerId) => {
+  if (!handlers[handlerId]) {
     throw Error();
   }
-  return handlers[handerId].protoType;
+  return handlers[handlerId].handler;
+};
+
+export const getProtoTypeNameByHandlerId = (handlerId) => {
+  if (!handlers[handlerId]) {
+    throw Error();
+  }
+  return handlers[handlerId].protoType;
 };
